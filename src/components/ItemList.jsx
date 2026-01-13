@@ -78,9 +78,9 @@ export const CartItemList = ({cardData}) => {
         return (
           <div
             key={item.card?.info?.id}
-            className=" grid grid-cols-3 gap-3 border-b-2 border-zinc-300 px-6 transition mx-6 my-4 pb-7 items-center font-sans"
+            className=" grid grid-cols-3 gap-3 border-b-2 border-zinc-300 px-6 transition mx-6 my-4 pb-7 items-center font-sans relative"
           >
-            <button onClick={()=> dltItem(item)} className=" absolute cursor-pointer active:scale-95 transition right-7 my-[50%] "><Trash2 /></button>
+            <button onClick={()=> dltItem(item)} className=" absolute cursor-pointer active:scale-95 transition right-2 my-[50%] "><Trash2 /></button>
 
             <div className=" flex  gap-3 flex-col col-span-2">
               <h2 className=" text-xl font-medium">{item.card?.info.name}</h2>
