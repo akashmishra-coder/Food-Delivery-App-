@@ -22,14 +22,14 @@ const Cart = () => {
     <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Items column (spans 2 on md+) */}
-        <section className="md:col-span-2 bg-zinc-100 rounded-xl shadow-md p-6 min-h-[60vh]">
+        <section className="md:col-span-2 bg-zinc-100 rounded-xl  shadow-md p-6 min-h-[60vh]">
           <div className="flex items-start justify-between gap-4 mb-4">
             <div>
               <h2 className="text-2xl sm:text-3xl font-serif font-semibold">Cart Items</h2>
               <p className="text-sm text-gray-500 mt-1">{cart.length} item{cart.length !== 1 ? "s" : ""} in cart</p>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-end flex-wrap md:flex-nowrap gap-3">
               <button
                 onClick={handlerClearitem}
                 // disabled={cart.length === 0}
