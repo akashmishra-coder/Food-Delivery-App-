@@ -2,17 +2,17 @@ import { useParams } from "react-router";
 import CartButton from "./CartButton";
 import Shimmer from "./Shimmer";
 import useRestaurentInfo from "../utils/useRestaurentInfo";
-import RecommendCard from "./ItemList";
 import RestaurentCategory from "./RestaurentCategory";
 import { useState } from "react";
+import { ToastContainer } from 'react-toastify';
+
 
 function Resturantmenu() {
   const { resId } = useParams();
   const resInfo = useRestaurentInfo(resId);
-  const [showItem, setShowItem] = useState(false);
+  const [showItem, setShowItem] = useState(null);
   
-  if (resInfo === null) return <Shimmer />;
-  
+  if (resInfo === null) return <Shimmer />;  
 
 
   const {
@@ -25,8 +25,6 @@ function Resturantmenu() {
     locality,
   } = resInfo?.cards[2]?.card?.card?.info;
 
-  const { itemCards } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   const category =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -61,7 +59,7 @@ function Resturantmenu() {
               key={idx} 
               data={categoryitem?.card?.card} 
               showItem={idx === showItem && true}
-              setShowItem={ () => setShowItem(idx) }
+              setShowItem={ () => setShowItem(showItem === idx? null : idx ) }
               />
             );
           })}

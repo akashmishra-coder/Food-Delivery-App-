@@ -26,9 +26,9 @@ function About() {
 if(userInfo.length === 0) return <Shimmer />
 
   return (
-    <div className="about-main">
-        <h1>About us </h1>
-        <div className="about">
+    <div >
+          <h1 className="w-full my-10 text-4xl font-bold text-center ">About us </h1>
+        <div className=" flex flex-wrap justify-center gap-5">
         {userInfo.map((data) => (
           <UserClass key={data.id} data={data} />
         ))}

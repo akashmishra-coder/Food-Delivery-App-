@@ -49,7 +49,7 @@ export const Body = () => {
   return restro.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body bg-gray-300 ">
+    <div className="body bg-(--c2) ">
       <div className=" w-full border-2 bg-white rounded-400 box-border pt-5 pb-15">
         <div className=" w-full flex justify-center gap-20 text-2xl font-medium font-serif mb-5">
           <p>Dinner</p>
@@ -90,7 +90,7 @@ export const Body = () => {
         />
 
         <button
-          className=" bg-[#008000] cursor-pointer hover:scale-105 text-white py-2 px-3 rounded-xl  hover:transition-all hover:duration-100 text-2xl shadow-md shadow-gray-600"
+          className=" bg-[#008000] cursor-pointer active:scale-95 text-white py-2 px-3 rounded-md  transition text-xl shadow-md shadow-zinc-700"
           type="button"
           onClick={() => {
             //filter the restaurnt card and update UI
@@ -105,7 +105,7 @@ export const Body = () => {
       </div>
 
       <button
-        className=" py-3 px-6 text-lg font-medium  m-2.5 bg-[#008000] text-white rounded-xl ml-10 hover:scale-105 hover:transition-all hover:duration-100 shadow-md shadow-gray-600"
+        className=" py-3 px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl ml-10 active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700 "
         //after click here will reset all cards on UI
         onClick={() => {
           //again we call Api here
@@ -116,7 +116,7 @@ export const Body = () => {
       </button>
 
       <button
-        className=" py-3 px-6 text-lg font-medium  m-2.5 bg-[#008000] text-white rounded-xl ml-10 hover:scale-105 hover:transition-all hover:duration-100 shadow-md shadow-gray-600"
+        className=" py-3 px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl ml-10 active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700"
         onClick={() => {
           let restroList = restro.filter((res) => res.info.avgRating > 4.5);
           filtersetrestro(restroList);
@@ -125,14 +125,14 @@ export const Body = () => {
         Top restraunt
       </button>
 
-      <button className=" py-3 px-6 border-2 text-lg font-medium border-none m-2.5 bg-[#008000] text-white rounded-xl ml-10 shadow-md hover:scale-105 hover:transition-all hover:duration-100 shadow-gray-600">
+      <button className=" py-3 px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl ml-10 active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700">
         {" "}
         Available {filterRestro.length}
       </button>
-      <h2 className=" text-2xl font-medium text-green-950">
+      <h2 className=" text-2xl font-medium text-(--c1)">
         Top Restaurant in Delhi
       </h2>
-      <div className=" w-full px-20 flex flex-wrap gap-5 box-border py-15 bg-[#6D9773]">
+      <div className=" w-full px-10 flex flex-wrap justify-center gap-5 box-border py-15 bg-(--c3)">
         {/* //this will loop all the cards and display on UI */}
         {filterRestro.map((restraunt, index) => (
           <Link key={restraunt.info.id} to={`restaurents/${restraunt.info.id}`}>

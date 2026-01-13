@@ -23,16 +23,37 @@ class UserClass extends React.Component {
     
   }
 
+/* 
+.userclass {
+  border-radius: 20px;
+  margin: 30px;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  gap: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px 2px rgb(219, 219, 219);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-left: 10px;
+}
+.userclass img {
+  width: auto;
+  border-radius: 20px;
+  margin-left: -10px;
+}
+*/
+
 
   render() {
     const { login, avatar_url } = this.props.data;
 
     return (
-      <div className="userclass">
-        <img src={avatar_url} alt="img" />
-        <p>{login}</p>
-        <p>Seniour Software Engineer</p>
-        <p>Randomuser@gamil.com</p>
+      <div className="w-60 mb-20 shadow-xl text-gray-700 pb-5 text-md flex flex-col box-border gap-5 rounded-3xl hover:scale-105 transition cursor-pointer">
+        <img src={avatar_url} alt="img" className=" w-auto rounded-t-3xl " />
+        <p className=" ml-3">{login}</p>
+        <p className=" ml-3">Seniour Software Engineer</p>
+        <p className=" ml-3">Randomuser@gamil.com</p>
       </div>
     );
   }

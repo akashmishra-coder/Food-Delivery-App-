@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+:root {
+  --c1:rgb(245, 251, 230);
+  --c2:rgb(33, 94, 97);
+  --c3:rgb(35, 61, 77);
+  --c4:rgb(254, 127, 45);
+  --w:#ffffff;
+}
+
 
 body {
   margin: 0;
@@ -8,12 +16,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 .navbg{
-  background-color: rgb(78, 176, 80);
+  background-color: var(--c4);
   color: rgb(0, 0, 0);
   padding: 5px 10px;
   border-radius: 10px;
-  font-size: large;
-  transition: all 100ms ease-in;
+  font-size: medium;
+  transition: all 100ms ease-in-out;
 }
 
 
@@ -117,15 +125,19 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   margin-bottom: 20px;
+
 }
 .menu-name {
   width: 60%;
   margin-top: 50px;
+  padding: 13px 15px;
+  box-shadow:  0 0 7px 2px rgb(209, 209, 209);
 }
 .name-item {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 .name {
   font-size: 2rem;
@@ -219,24 +231,6 @@ Link {
   font-size: 3rem;
   text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-.userclass {
-  border-radius: 20px;
-  margin: 30px;
-  background: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  gap: 20px;
-  box-sizing: border-box;
-  box-shadow: 0 0 5px 2px rgb(219, 219, 219);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  padding-left: 10px;
-}
-.userclass img {
-  width: auto;
-  border-radius: 20px;
-  margin-left: -10px;
 }
 
 .netwrokstatus{
