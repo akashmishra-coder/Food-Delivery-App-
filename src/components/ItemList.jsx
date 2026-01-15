@@ -21,9 +21,9 @@ const ItemList = ({ cardData }) => {
         return (
           <div
             key={item.card?.info?.id}
-            className=" grid grid-cols-3 gap-3 border-b-2 border-zinc-300 px-6 transition mx-6 my-4 pb-7 items-center font-sans"
+            className=" grid grid-cols-3 gap-2 border-b-2 border-zinc-500 px-6 transition md:mx-6 my-4 pb-7 items-center font-sans "
           >
-            <div className=" flex  gap-3 flex-col col-span-2">
+            <div className=" flex gap-2 flex-col col-span-2">
               <h2 className=" text-xl font-medium">{item.card?.info.name}</h2>
               <p className=" text-md">
                 ₹ <b>{item.card?.info.price || item.card?.info.defaultPrice}</b>{" "}
@@ -33,14 +33,14 @@ const ItemList = ({ cardData }) => {
                 {item.card?.info.description}
               </p>
             </div>
-            <div className=" p-2 box-border relative flex justify-center ">
+            <div className=" md:p-2 box-border relative flex h-full w-full justify-center ">
               <img
-                className=" w-10/12 rounded-2xl "
+                className=" w-full aspect-square md:w-10/12 rounded-2xl "
                 src={Imgsrc.concat(item.card?.info.imageId)}
                 alt=""
               />
               <button
-                className=" text-2xl cursor-pointer w-4/12 mx -10 rounded-xl absolute bottom-2 bg-(--c3) text-(--c1) px-3 py-2 shadow-md shadow-black active:scale-95 transition"
+                className=" text-2xl cursor-pointer  mx-10 rounded-xl absolute bottom-2 bg-(--c3) text-(--c1) px-3 py-2 shadow-md shadow-black active:scale-95 transition"
                 onClick={() => handlerAddItem(item)}
               >
                 ADD

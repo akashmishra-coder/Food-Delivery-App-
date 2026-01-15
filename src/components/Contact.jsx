@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle, X, Twitter, Linkedin, Github } from "lucide-react";
 
 const Contact = () => {

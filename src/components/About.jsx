@@ -1,13 +1,34 @@
 import { useState, useEffect } from "react";
 import UserClass from "./UserClass";
 import Shimmer from "./Shimmer";
+import { ArrowUp } from "lucide-react";
 
 function About() {
   const [userInfo, setUserInfo] = useState([]);
   const [error, setError] = useState(null);
-
+const [isVisible, setisVisible] = useState(false);
+    function handleScroll() {
+        window.addEventListener("scroll", () => {
+            console.log(window.scrollY);
+            
+            if(window.scrollY > 200){
+                setisVisible(true)
+            }else{
+                setisVisible(false)
+            }
+        })
+    }
+     function scrollToTop() {
+    // Implement smooth scroll to top
+    window.scrollTo({
+      top: 0,
+      behavior:"smooth",
+    })
+  }
+   
   useEffect(() => {
     fetchData();
+    handleScroll();
   }, []);
 
   async function fetchData() {
@@ -24,6 +45,7 @@ function About() {
 
   return (
     <main className="max-w-6xl mx-auto p-6 sm:p-10">
+      {isVisible && <button  onClick={scrollToTop} className=" fixed z-40 bg-blue-700 px-2 py-2 cursor-pointer active:scale-95 transition  bottom-10 right-10 rounded-md"><ArrowUp /></button>}
       <header className="text-center mb-8">
         <h1 className="text-4xl sm:text-5xl font-bold mb-2">About us</h1>
         <p className="text-gray-600 max-w-2xl mx-auto">We build delightful food experiences — focusing on fast delivery, fresh ingredients, and a memorable customer journey.</p>

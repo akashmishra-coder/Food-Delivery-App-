@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import Menucard, { PromotedComponents } from "./Menucard";
+import { ArrowUp } from "lucide-react";
 
 //state variable in react
 export const Body = () => {
@@ -11,11 +12,33 @@ export const Body = () => {
   console.log(restro);
 
   const RestauretCardPromoted = PromotedComponents(Menucard);
+  const [isVisible, setisVisible] = useState(false);
 
   const [searchtext, setsearchtext] = useState("");
 
   //whenever a state variable is updated, react trigger reconciliation cycle(re-rendered the component)
+    function handleScroll() {
+        window.addEventListener("scroll", () => {
+            console.log(window.scrollY);
+            
+            if(window.scrollY > 200){
+                setisVisible(true)
+            }else{
+                setisVisible(false)
+            }
+        })
+    }
+     function scrollToTop() {
+    // Implement smooth scroll to top
+    window.scrollTo({
+      top: 0,
+      behavior:"smooth",
+    })
+  }
+   
+
   useEffect(() => {
+    handleScroll();
     fetchdata();
   }, []);
 
@@ -50,22 +73,22 @@ export const Body = () => {
     <Shimmer />
   ) : (
     <div className="body bg-(--c2) ">
-      <div className=" w-full border-2 bg-white rounded-400 box-border pt-5 pb-15">
-        <div className=" w-full flex justify-center gap-20 text-2xl font-medium font-serif mb-5">
+      <div className=" w-full border-2 bg-white rounded-400 pt-5 pb-15 box-border">
+        <div className=" w-full flex justify-center gap-6 md:gap-20 box-border text-xl font-medium font-serif mb-5">
           <p>Dinner</p>
           <p>|</p>
           <p> Restaurents </p>
           <p>|</p>
           <p> Food News </p>
         </div>
-        <div className=" w-full  flex flex-col items-center  gap-10 text-lg">
+        <div className=" w-full  flex flex-col items-center gap-7 md:gap-10 text-lg">
           <img
             src={
               "https://t3.ftcdn.net/jpg/06/32/69/10/240_F_632691099_lF6Vsz0DsO4KE4azO1WIXiOtRClw7QPk.jpg"
             }
             alt=""
           />
-          <p className=" text-6xl w-130 text-center font-bold font-serif text-shadow-lg/30  ">
+          <p className=" text-6xl md:w-130 text-center font-bold font-serif text-shadow-lg/30  ">
             Chess and Spiece on every Slice
           </p>
           <p className=" text-2xl font-serif text-center">
@@ -88,7 +111,7 @@ export const Body = () => {
             setsearchtext(e.target.value);
           }}
         />
-
+          
         <button
           className=" bg-[#008000] cursor-pointer active:scale-95 text-white py-2 px-3 rounded-md  transition text-xl shadow-md shadow-zinc-700"
           type="button"
@@ -103,9 +126,10 @@ export const Body = () => {
           Search
         </button>
       </div>
-
+      <div className=" flex w-full gap-1 md:justify-center md:gap-10  overflow-auto">
+      {isVisible && <button  onClick={scrollToTop} className=" fixed z-40 bg-blue-700 px-2 py-2 cursor-pointer active:scale-95 transition  bottom-10 md:right-10 right-5 rounded-md"><ArrowUp /></button>}
       <button
-        className=" py-3 px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl ml-10 active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700 "
+        className=" py-3 px-3 md:px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700 "
         //after click here will reset all cards on UI
         onClick={() => {
           //again we call Api here
@@ -116,7 +140,7 @@ export const Body = () => {
       </button>
 
       <button
-        className=" py-3 px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl ml-10 active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700"
+        className=" py-3 px-3 md:px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl  active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700"
         onClick={() => {
           let restroList = restro.filter((res) => res.info.avgRating > 4.5);
           filtersetrestro(restroList);
@@ -125,14 +149,15 @@ export const Body = () => {
         Top restraunt
       </button>
 
-      <button className=" py-3 px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl ml-10 active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700">
+      <button className=" py-3 px-3 md:px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl  active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700">
         {" "}
         Available {filterRestro.length}
       </button>
-      <h2 className=" text-2xl font-medium text-(--c1)">
+      </div>
+      <h2 className=" text-xl md:text-center font-medium text-(--c1)">
         Top Restaurant in Delhi
       </h2>
-      <div className=" w-full px-10 flex flex-wrap justify-center gap-5 box-border py-15 bg-(--c3)">
+      <div className=" w-full md:px-10 flex flex-wrap justify-center gap-5 box-border py-15 bg-(--c3)">
         {/* //this will loop all the cards and display on UI */}
         {filterRestro.map((restraunt, index) => (
           <Link key={restraunt.info.id} to={`restaurents/${restraunt.info.id}`}>

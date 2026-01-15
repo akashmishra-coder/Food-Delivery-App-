@@ -112,7 +112,7 @@ const Header = () => {
       {/* mobile menu panel */}
       <div className={`md:hidden ${menuOpen ? "block" : "hidden"} bg-(--c2) border-t border-(--c1)/5`}>
         <div className="px-4 pt-4 pb-6">
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col items-center gap-3">
             <li>
               <NavLink to="/" className={(e) => (e.isActive ? "navbg block px-3 py-2 rounded" : "block px-3 py-2 rounded hover:bg-(--c1)/10") } onClick={() => setMenuOpen(false)}>
                 Home
@@ -136,10 +136,10 @@ const Header = () => {
                 <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">{cartItems.length}</span>
               )}
             </li>
-            <li className="flex items-center gap-3 pt-2">
+            {/* <li className="flex items-center gap-3 pt-2">
               {onlineStatus ? <img src={Online} alt="online" className="h-5 w-5" /> : <img src={Ofline} alt="offline" className="h-5 w-5" />}
               <span className="text-sm">{onlineStatus ? "Online" : "Offline"}</span>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

@@ -7,7 +7,7 @@ const Cart = () => {
 
   const cart = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
-
+  
   const handlerClearitem = () => {
     dispatch(clearItem());
   };
@@ -17,6 +17,8 @@ const Cart = () => {
     const price = item?.card?.info?.price ?? item?.card?.info?.defaultPrice ?? 0;
     return s + Number(price || 0);
   }, 0);
+
+ 
 
   return (
     <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
