@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import { Imgsrc, AltImg} from "../utils/constanst"
-import UserContext from "../utils/UserContext";
 
 const Menucard = (props) => {
   const { resdata } = props;

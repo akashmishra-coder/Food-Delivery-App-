@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle, X, Twitter, Linkedin, Github } from "lucide-react";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ submitting: false, success: false });
-  const [mapLoaded, setMapLoaded] = useState(false);
 
   const validate = () => {
     const errs = {};

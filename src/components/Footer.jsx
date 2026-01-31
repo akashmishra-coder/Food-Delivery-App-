@@ -1,5 +1,4 @@
 import { LOGO_URL } from "../utils/constanst";
-import foodlogo from '../Public/foodlogo.png'
 
 
 const Footer = () =>{

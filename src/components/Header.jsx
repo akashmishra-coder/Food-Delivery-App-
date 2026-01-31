@@ -1,4 +1,4 @@
-import { LOGO_URL, Ofline, Online } from "../utils/constanst";
+import { LOGO_URL } from "../utils/constanst";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -10,7 +10,6 @@ const Header = () => {
 
   //subscribe to the store  to get the cart items
   const cartItems = useSelector((store) => store.cart.items);
-  const onlineStatus = useOnlineStatus();
 
   // close mobile menu on resize to desktop
   useEffect(() => {
