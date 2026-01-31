@@ -74,28 +74,28 @@ export const CartItemList = ({cardData}) => {
 }
   return (
     <div>
-      {cardData.map((item) => {
+      {cardData?.map((item) => {
         return (
           <div
-            key={item.card?.info?.id}
+            key={item?.card?.info?.id}
             className=" grid grid-cols-3 gap-3 border-b-2 border-zinc-300 px-6 transition mx-6 my-4 pb-7 items-center font-sans relative"
           >
             <button onClick={()=> dltItem(item)} className=" absolute cursor-pointer active:scale-95 transition right-2 my-[50%] "><Trash2 /></button>
 
             <div className=" flex  gap-3 flex-col col-span-2">
-              <h2 className=" text-xl font-medium">{item.card?.info.name}</h2>
+              <h2 className=" text-xl font-medium">{item?.card?.info?.name}</h2>
               <p className=" text-md">
-                ₹ <b>{item.card?.info.price || item.card?.info.defaultPrice}</b>{" "}
+                ₹ <b>{item?.card?.info?.price || item?.card?.info?.defaultPrice}</b>{" "}
                 50% OFF USE SWIGGY
               </p>
               <p className=" text-zinc-500 font-medium">
-                {item.card?.info.description}
+                {item?.card?.info?.description}
               </p>
             </div>
             <div className=" p-2 box-border relative flex justify-center ">
               <img
                 className=" w-10/12 rounded-2xl "
-                src={Imgsrc.concat(item.card?.info.imageId)}
+                src={Imgsrc.concat(item?.card?.info?.imageId)}
                 alt=""
               />
               <button

@@ -16,7 +16,7 @@ const RestaurentCategory = ({ data , showItem, setShowItem }) => {
           onClick={handleAccordion} 
         >
           <span className=" font-bold text-xl text-black ">
-            {data.title} ({data.itemCards.length})
+            {data?.title} ({data?.itemCards?.length || 0} items)
           </span>
           {showItem ? <ArrowBigDownIcon /> :<ArrowBigUpIcon />}
           

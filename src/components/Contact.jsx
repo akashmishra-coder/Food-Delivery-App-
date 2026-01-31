@@ -131,7 +131,7 @@ const Contact = () => {
                   className={`w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 disabled:opacity-60 disabled:cursor-not-allowed ${errors.name ? "border-red-300 focus:ring-red-200" : "border-gray-200 focus:ring-indigo-200"}`}
                   placeholder="Your name"
                 />
-                {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name}</p>} 
+                {errors?.name && <p className="text-sm text-red-600 mt-1">{errors.name}</p>} 
               </div>
 
               <div>
@@ -146,7 +146,7 @@ const Contact = () => {
                   placeholder="you@example.com"
                   type="email"
                 />
-                {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email}</p>} 
+                {errors?.email && <p className="text-sm text-red-600 mt-1">{errors.email}</p>} 
               </div>
             </div>
 
@@ -161,7 +161,7 @@ const Contact = () => {
                 className={`w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 disabled:opacity-60 disabled:cursor-not-allowed ${errors.subject ? "border-red-300 focus:ring-red-200" : "border-gray-200 focus:ring-indigo-200"}`}
                 placeholder="Brief subject"
               />
-              {errors.subject && <p className="text-sm text-red-600 mt-1">{errors.subject}</p>} 
+              {errors?.subject && <p className="text-sm text-red-600 mt-1">{errors.subject}</p>} 
             </div>
 
             <div className="mt-4">
@@ -175,7 +175,7 @@ const Contact = () => {
                 className={`w-full min-h-[120px] rounded-md border px-3 py-2 focus:outline-none focus:ring-2 disabled:opacity-60 disabled:cursor-not-allowed ${errors.message ? "border-red-300 focus:ring-red-200" : "border-gray-200 focus:ring-indigo-200"}`}
                 placeholder="Tell us a bit about your inquiry"
               />
-              {errors.message && <p className="text-sm text-red-600 mt-1">{errors.message}</p>} 
+              {errors?.message && <p className="text-sm text-red-600 mt-1">{errors.message}</p>} 
             </div>
 
             <div className="mt-5 flex items-center justify-between gap-3">
@@ -183,9 +183,9 @@ const Contact = () => {
                 type="submit"
                 disabled={status.submitting}
                 className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer text-white px-4 py-2 rounded-md shadow"
-                aria-busy={status.submitting}
+                aria-busy={status?.submitting}
               >
-                {status.submitting ? (
+                {status?.submitting ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true" />
                     <span>Sending...</span>

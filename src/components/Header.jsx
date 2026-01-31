@@ -130,7 +130,7 @@ const Header = () => {
               <NavLink to="/cart" className={(e) => (e.isActive ? "navbg block px-3 py-2 rounded" : "block px-3 py-2 rounded hover:bg-(--c1)/10") } onClick={() => setMenuOpen(false)}>
                 Cart
               </NavLink>
-              {cartItems.length > 0 || 0 && (
+              {cartItems?.length > 0 && (
                 <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">{cartItems.length || 0}</span>
               )}
             </li>

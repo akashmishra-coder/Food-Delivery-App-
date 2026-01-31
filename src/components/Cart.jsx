@@ -28,7 +28,7 @@ const Cart = () => {
           <div className="flex items-start justify-between gap-4 mb-4">
             <div>
               <h2 className="text-2xl sm:text-3xl font-serif font-semibold">Cart Items</h2>
-              <p className="text-sm text-gray-500 mt-1">{cart.length} item{cart.length !== 1 ? "s" : ""} in cart</p>
+              <p className="text-sm text-gray-500 mt-1">{cart?.length || 0} item{cart?.length !== 1 ? "s" : ""} in cart</p>
             </div>
 
             <div className="flex items-center justify-end flex-wrap md:flex-nowrap gap-3">
@@ -46,7 +46,7 @@ const Cart = () => {
 
           <hr className="border-gray-200 mb-4" />
 
-          {cart.length === 0 ? (
+          {cart?.length === 0 || 0 ? (
             <Emptycartbody />
           ) : (
             <div className="overflow-y-auto max-h-[56vh] pr-2">
@@ -73,7 +73,7 @@ const Cart = () => {
 
           <div className="mt-6 flex flex-col gap-3">
             <button
-              disabled={cart.length === 0}
+              disabled={cart?.length === 0 || 0}
               className="w-full bg-indigo-600 text-white px-4 py-2 rounded-md disabled:opacity-60"
             >
               Proceed to Checkout

@@ -64,13 +64,11 @@ export const Body = () => {
   }
 
   // conditonal rendering
-  if (restro.length === 0) {
+  if (restro?.length === 0 || 0) {
     return <Shimmer />;
   }
 
-  return restro.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <div className="body bg-(--c2) ">
       <div className=" w-full border-2 bg-white rounded-400 pt-5 pb-15 box-border">
         <div className=" w-full flex justify-center gap-6 md:gap-20 box-border text-xl font-medium font-serif mb-5">
@@ -150,7 +148,7 @@ export const Body = () => {
 
       <button className=" py-3 px-3 md:px-6 text-lg font-medium  m-2.5 bg-(--c4) text-(--w) rounded-xl  active:scale-95 active:transition-all active:duration-100 cursor-pointer shadow-md shadow-zinc-700">
         {" "}
-        Available {filterRestro.length}
+        Available {filterRestro?.length || 0}
       </button>
       </div>
       <h2 className=" text-xl md:text-center font-medium text-(--c1)">
@@ -158,10 +156,10 @@ export const Body = () => {
       </h2>
       <div className=" w-full md:px-10 flex flex-wrap justify-center gap-5 box-border py-15 bg-(--c3)">
         {/* //this will loop all the cards and display on UI */}
-        {filterRestro.map((restraunt, index) => (
-          <Link key={restraunt.info.id} to={`restaurents/${restraunt.info.id}`}>
+        {filterRestro?.map((restraunt, index) => (
+          <Link key={restraunt.info.id} to={`restaurents/${restraunt?.info?.id}`}>
             {restraunt.info.avgRating > 4.5 ? (
-              <RestauretCardPromoted resdata={restraunt.info} />
+              <RestauretCardPromoted resdata={restraunt?.info} />
             ) : (
               <Menucard resdata={restraunt.info} />
             )}
