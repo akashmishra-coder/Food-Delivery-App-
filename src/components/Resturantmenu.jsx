@@ -1,5 +1,4 @@
 import { useParams } from "react-router";
-import CartButton from "./CartButton";
 import Shimmer from "./Shimmer";
 import useRestaurentInfo from "../utils/useRestaurentInfo";
 import RestaurentCategory from "./RestaurentCategory";
@@ -59,7 +58,7 @@ function Resturantmenu() {
 
           {/* //acordiaun sections */}
           <div className=" mb-25 ">
-          {category.map((categoryitem, idx) => {
+          {category?.map((categoryitem, idx) => {
             return (
 
               // controlled component

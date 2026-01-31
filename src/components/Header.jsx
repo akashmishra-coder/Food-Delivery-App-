@@ -1,7 +1,6 @@
 import { LOGO_URL } from "../utils/constanst";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";
 
 const Header = () => {
@@ -52,8 +51,8 @@ const Header = () => {
                 <NavLink to="/cart" className={(e) => (e.isActive ? "navbg px-3 py-1 rounded" : "px-3 py-1 rounded hover:bg-(--c1)/10") }>
                   Cart
                 </NavLink>
-                {cartItems.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">{cartItems.length}</span>
+                {cartItems?.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">{cartItems?.length || 0}</span>
                 )}
               </li>
 
@@ -131,8 +130,8 @@ const Header = () => {
               <NavLink to="/cart" className={(e) => (e.isActive ? "navbg block px-3 py-2 rounded" : "block px-3 py-2 rounded hover:bg-(--c1)/10") } onClick={() => setMenuOpen(false)}>
                 Cart
               </NavLink>
-              {cartItems.length > 0 && (
-                <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">{cartItems.length}</span>
+              {cartItems.length > 0 || 0 && (
+                <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">{cartItems.length || 0}</span>
               )}
             </li>
             {/* <li className="flex items-center gap-3 pt-2">

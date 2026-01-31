@@ -9,7 +9,6 @@ export const Body = () => {
   const [restro, setrestro] = useState([]); //this will hold all cards and will update
   const [filterRestro, filtersetrestro] = useState([]); //this variable will display the cards on UI and it will use to update UI through restro varible.
 
-  console.log(restro);
 
   const RestauretCardPromoted = PromotedComponents(Menucard);
   const [isVisible, setisVisible] = useState(false);
