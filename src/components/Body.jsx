@@ -64,12 +64,13 @@ export const Body = () => {
 
   // conditonal rendering
   if (restro?.length === 0 || 0) {
-    return <Shimmer />;
+   return <Shimmer />;
   }
 
   return (
     <div className="body bg-(--c2) ">
-      <div className=" w-full border-2 bg-white rounded-400 pt-5 pb-15 box-border">
+      <div className=" w-full border-2 bg-white rounded-400  pb-15 box-border">
+       
         <div className=" w-full flex justify-center gap-6 md:gap-20 box-border text-xl font-medium font-serif mb-5">
           <p>Dinner</p>
           <p>|</p>
