@@ -7,6 +7,8 @@ const useRestaurentInfo = (resId) => {
 
     useEffect(()=>{
         fetchdata(resId);
+        console.log(MENU_API);
+        
     },[]);
 
     async function fetchdata(resId) {

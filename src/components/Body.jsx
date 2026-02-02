@@ -18,7 +18,7 @@ export const Body = () => {
   //whenever a state variable is updated, react trigger reconciliation cycle(re-rendered the component)
     function handleScroll() {
         window.addEventListener("scroll", () => {
-            console.log(window.scrollY);
+            // console.log(window.scrollY);
             
             if(window.scrollY > 200){
                 setisVisible(true)
