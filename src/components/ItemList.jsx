@@ -15,28 +15,28 @@ const ItemList = ({ cardData }) => {
 
   return (
     <div>
-      {cardData.map((item) => {
+      {cardData && cardData.map((item) => {
         console.log(item?.card?.info?.id);
         
         return (
           <div
-            key={item.card?.info?.id}
+            key={item?.card?.info?.id}
             className=" grid grid-cols-3 gap-2 border-b-2 border-zinc-500 px-6 transition md:mx-6 my-4 pb-7 items-center font-sans "
           >
             <div className=" flex gap-2 flex-col col-span-2">
-              <h2 className=" text-xl font-medium">{item.card?.info.name}</h2>
+              <h2 className=" text-xl font-medium">{item?.card?.info?.name}</h2>
               <p className=" text-md">
-                ₹ <b>{item.card?.info.price || item.card?.info.defaultPrice}</b>{" "}
+                ₹ <b>{item?.card?.info?.price || item?.card?.info?.defaultPrice}</b>{" "}
                 50% OFF USE SWIGGY
               </p>
               <p className=" text-zinc-500 font-medium">
-                {item.card?.info.description}
+                {item?.card?.info?.description}
               </p>
             </div>
             <div className=" md:p-2 box-border relative flex h-full w-full justify-center ">
               <img
                 className=" w-full aspect-square md:w-10/12 rounded-2xl "
-                src={Imgsrc.concat(item.card?.info.imageId)}
+                src={Imgsrc.concat(item?.card?.info?.imageId)}
                 alt=""
               />
               <button
@@ -74,7 +74,7 @@ export const CartItemList = ({cardData}) => {
 }
   return (
     <div>
-      {cardData?.map((item) => {
+      {cardData && cardData?.map((item) => {
         return (
           <div
             key={item?.card?.info?.id}

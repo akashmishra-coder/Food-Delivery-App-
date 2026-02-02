@@ -7,6 +7,8 @@ function About() {
   const [userInfo, setUserInfo] = useState([]);
   const [error, setError] = useState(null);
 const [isVisible, setisVisible] = useState(false);
+
+
     function handleScroll() {
         window.addEventListener("scroll", () => {
             console.log(window.scrollY);
@@ -80,11 +82,11 @@ const [isVisible, setisVisible] = useState(false);
 
         {error && <div className="text-red-600 mb-4">{error}</div>}
 
-        {userInfo.length === 0 || 0 && !error ? (
+        {userInfo?.length === 0 || 0 && !error ? (
           <Shimmer />
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {userInfo?.map((user) => (
+            {userInfo && userInfo.map((user) => (
               <UserClass key={user.id} data={user} />
             ))}
           </div>

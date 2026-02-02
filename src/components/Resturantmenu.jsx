@@ -58,7 +58,7 @@ function Resturantmenu() {
 
           {/* //acordiaun sections */}
           <div className=" mb-25 ">
-          {category?.map((categoryitem, idx) => {
+          {category && category?.map((categoryitem, idx) => {
             return (
 
               // controlled component

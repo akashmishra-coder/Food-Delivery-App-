@@ -157,8 +157,8 @@ export const Body = () => {
       <div className=" w-full md:px-10 flex flex-wrap justify-center gap-5 box-border py-15 bg-(--c3)">
         {/* //this will loop all the cards and display on UI */}
         {filterRestro?.map((restraunt, index) => (
-          <Link key={restraunt.info.id} to={`restaurents/${restraunt?.info?.id}`}>
-            {restraunt.info.avgRating > 4.5 ? (
+          <Link key={restraunt?.info?.id} to={`restaurents/${restraunt?.info?.id}`}>
+            {restraunt?.info?.avgRating > 4.5 ? (
               <RestauretCardPromoted resdata={restraunt?.info} />
             ) : (
               <Menucard resdata={restraunt.info} />
