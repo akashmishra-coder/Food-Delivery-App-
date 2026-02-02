@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import Menucard, { PromotedComponents } from "./Menucard";
 import { ArrowUp } from "lucide-react";
+import { CARD_API } from "../utils/constanst";
 
 //state variable in react
 export const Body = () => {
@@ -44,9 +45,7 @@ export const Body = () => {
   //async function to calling API
   async function fetchdata() {
     try {
-      let data = await fetch(
-        "https://corsproxy.io/https://namastedev.com/api/v1/listRestaurants"
-      );
+      let data = await fetch(CARD_API);
       let json = await data.json();
       console.log(json.message);
       // optional chaining
